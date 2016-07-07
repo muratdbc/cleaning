@@ -1,0 +1,12 @@
+<ion-view view-title="Jobs">
+<br><br>
+  <ion-list>
+    <ion-item ng-repeat="job in jobs | limitTo:20">
+      Rental:{{job.rental.address1}} {{job.rental.address2}},{{job.rental.city}},{{job.rental.province}}
+      <br>
+      Job Date:{{job.jobDate}}
+      <br>
+      Job Time:{{job.jobTime}}
+    </ion-item>
+</ion-list>
+</ion-view>
