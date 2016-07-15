@@ -13,7 +13,7 @@ angular.module('starter.services', [])
       }
 }])
 .factory('DataApi', ['Restangular','UserService',function(Restangular,UserService) {
-  Restangular.setBaseUrl('https://api.rentlever.com/');
+  Restangular.setBaseUrl('https://api.stage.rentlever.com/');
   Restangular.setDefaultHeaders({'Content-Type': 'application/x-www-form-urlencoded'});
   return{
       getUser:function(){
