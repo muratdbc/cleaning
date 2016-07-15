@@ -23,6 +23,11 @@ angular.module('starter.services', [])
         Restangular.setDefaultRequestParams({token: UserService.getAccesToken()});
         console.log(Restangular.all('maintenance-jobs'))
         return Restangular.all('maintenance-jobs').getList();
+      },
+      getJob:function(){
+        Restangular.setDefaultRequestParams({token: UserService.getAccesToken()});
+        console.log(Restangular.all('maintenance-jobs'))
+        return Restangular.all('maintenance-jobs').getList();
       }
     }
 }]);

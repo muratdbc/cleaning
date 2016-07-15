@@ -32,21 +32,44 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','r
   $stateProvider
 
   // setup an abstract state for the tabs directive
-    .state('tab', {
-    url: '/tab',
-    abstract: true,
-    templateUrl: 'templates/tabs.html',
-    controller: 'AppCtrl'
+  .state('tabsController', {
+    url: '/page1',
+    templateUrl: 'templates/tabsController.html',
+    abstract:true
   })
+  //   .state('tab', {
+  //   url: '/tab',
+  //   abstract: true,
+  //   templateUrl: 'templates/tabs.html',
+  //   controller: 'AppCtrl'
+  // })
     .state('login', {
       url: '/login',
       templateUrl: 'templates/login.html',
       controller: 'LoginCtrl'
   })
-    .state('jobs',{
+    .state('tabsController.jobs',{
       url:'/jobs',
-      templateUrl:'templates/jobs.html',
-      controller:'JobsCtrl'
+      views: {
+        'tab1': {
+          templateUrl:'templates/jobs.html',
+          controller:'JobsCtrl'
+        }
+      }
+    })
+    .state('tabsController.profile',{
+      url:'/profile',
+      views: {
+        'tab3': {
+          templateUrl:'templates/profile.html',
+          controller:'ProfileCtrl'
+        }
+      }
+    })
+    .state('tabsController.job',{
+      url:'/job',
+      templateUrl:'templates/job.html',
+      controller:'JobCtrl'
     })
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');

@@ -26,9 +26,8 @@ angular.module('starter.controllers', [])
           if(angular.isObject(user)){
             UserService.setAccesToken(user.accessToken)
             console.log(UserService.getAccesToken())
-            $state.go("jobs")
+            $state.go("tabsController.jobs")
           }
-
         })
     }
 })
@@ -43,5 +42,21 @@ angular.module('starter.controllers', [])
     })
   };
   $scope.getJobs()
+
+}])
+.controller('ProfileCtrl',['$scope','UserService','DataApi',function($scope,UserService,DataApi) {
+
+}])
+.controller('JobCtrl',['$scope','UserService','DataApi',function($scope,UserService,DataApi) {
+  $scope.getJob=function(){
+    DataApi.getJob().then(function(jobs){
+      console.log(jobs)
+
+      $scope.jobs=_.filter(jobs,function(job){
+         return job.jobDate>moment().format("YYYY-MM-DD") ;
+      })
+    })
+  };
+  $scope.getJob()
 
 }]);
